@@ -1,0 +1,30 @@
+1. provide new users, like xueybai2 below.
+=======
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: aws-auth
+  namespace: kube-system
+data:
+  mapUsers: |
+    - userarn: arn:aws:iam::128761886083:user/xueybai
+      username: xueybai
+      groups:
+        - system:masters
+    - userarn: arn:aws:iam::128761886083:user/xueybai2
+      username: xueybai2
+      groups:
+        - system:masters
+======        
+
+2. kubectl apply -f above_file
+
+3, login new users in aws cli, use 
+
+aws configure
+
+4. update kubeconfig using 
+
+aws eks --region your_region update-kubeconfig --name cluseter_name
+
+5. new user should be able to connect to cluster now.
