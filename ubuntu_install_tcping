@@ -1,0 +1,3 @@
+$ sudo apt install tcptraceroute
+$ sudo wget http://www.vdberg.org/~richard/tcpping -O /usr/bin/tcping
+$ sudo chmod 755 /usr/bin/tcping
